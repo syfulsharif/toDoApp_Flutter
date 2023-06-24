@@ -9,10 +9,20 @@ class ToDoAppView extends StatefulWidget {
 }
 
 class _ToDoAppViewState extends State<ToDoAppView> {
-  List<String> toDoList = ['item1', 'item2'];
+  List<String> toDoList = [];
+
+  removeItem(index) {
+    toDoList.remove(toDoList[index]);
+  }
+  final fieldText = TextEditingController();
+
+  void clearText() {
+    fieldText.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
+    String todoItem = '';
     return Scaffold(
       appBar: AppBar(
         title: const Text('ToDo'),
@@ -23,6 +33,9 @@ class _ToDoAppViewState extends State<ToDoAppView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const SizedBox(
+              height: 20.0,
+            ),
             Expanded(
               flex: 10,
               child: Row(
@@ -30,6 +43,10 @@ class _ToDoAppViewState extends State<ToDoAppView> {
                   Expanded(
                     flex: 80,
                     child: TextFormField(
+                      onChanged: (value) {
+                        todoItem = value;
+                      },
+                      controller: fieldText,
                       decoration:
                           appInputDecoration('Enter a Task to Complete'),
                     ),
@@ -41,7 +58,12 @@ class _ToDoAppViewState extends State<ToDoAppView> {
                     flex: 20,
                     child: ElevatedButton(
                       style: appButtonStyle(),
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          toDoList.add(todoItem);
+                          clearText();
+                        });
+                      },
                       child: const Text(
                         'Add',
                         style: TextStyle(color: Colors.white),
@@ -50,6 +72,9 @@ class _ToDoAppViewState extends State<ToDoAppView> {
                   )
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 15.0,
             ),
             Expanded(
               flex: 90,
@@ -65,7 +90,11 @@ class _ToDoAppViewState extends State<ToDoAppView> {
                           ),
                           Expanded(
                             flex: 15,
-                            child: IconButton(onPressed: (){}, icon: const Icon(Icons.delete, color: Colors.green,)),
+                            child: IconButton(onPressed: (){
+                              setState(() {
+                                removeItem(index);
+                              });
+                            }, icon: const Icon(Icons.delete, color: Colors.green,)),
                           )
                         ],
                       )),
