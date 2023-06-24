@@ -8,7 +8,7 @@ class ToDoAppView extends StatefulWidget {
 }
 
 class _ToDoAppViewState extends State<ToDoAppView> {
-  List <String> toDoList = [];
+  List<String> toDoList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _ToDoAppViewState extends State<ToDoAppView> {
               child: Row(
                 children: [
                   Expanded(
-                    flex : 80,
+                    flex: 80,
                     child: TextFormField(),
                   ),
                   const SizedBox(
@@ -45,11 +45,10 @@ class _ToDoAppViewState extends State<ToDoAppView> {
             ),
             Expanded(
               flex: 90,
-              child: ListView(
-                ListView.builder(
-                  itemCount: toDoList.length,
-                    itemBuilder: itemBuilder)
-              ),
+              child: ListView.builder(
+                  itemCount: toDoList.length, itemBuilder: (context, index) {
+                    return Card();
+              }),
             )
           ],
         ),
