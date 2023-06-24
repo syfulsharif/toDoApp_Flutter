@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/style.dart';
 
 class ToDoAppView extends StatefulWidget {
   const ToDoAppView({super.key});
@@ -8,7 +9,7 @@ class ToDoAppView extends StatefulWidget {
 }
 
 class _ToDoAppViewState extends State<ToDoAppView> {
-  List<String> toDoList = [];
+  List<String> toDoList = ['item1', 'item2'];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,10 @@ class _ToDoAppViewState extends State<ToDoAppView> {
                 children: [
                   Expanded(
                     flex: 80,
-                    child: TextFormField(),
+                    child: TextFormField(
+                      decoration:
+                          appInputDecoration('Enter a Task to Complete'),
+                    ),
                   ),
                   const SizedBox(
                     width: 10.0,
@@ -36,8 +40,12 @@ class _ToDoAppViewState extends State<ToDoAppView> {
                   Expanded(
                     flex: 20,
                     child: ElevatedButton(
+                      style: appButtonStyle(),
                       onPressed: () {},
-                      child: const Text('Add'),
+                      child: const Text(
+                        'Add',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   )
                 ],
@@ -46,9 +54,23 @@ class _ToDoAppViewState extends State<ToDoAppView> {
             Expanded(
               flex: 90,
               child: ListView.builder(
-                  itemCount: toDoList.length, itemBuilder: (context, index) {
-                    return Card();
-              }),
+                  itemCount: toDoList.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: sizedBox50(Row(
+                        children: [
+                          Expanded(
+                            flex: 85,
+                            child: Text(toDoList[index]),
+                          ),
+                          Expanded(
+                            flex: 15,
+                            child: Icon(Icons.delete),
+                          )
+                        ],
+                      )),
+                    );
+                  }),
             )
           ],
         ),
