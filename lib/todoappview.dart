@@ -65,7 +65,7 @@ class _ToDoAppViewState extends State<ToDoAppView> {
                           ),
                           Expanded(
                             flex: 15,
-                            child: Icon(Icons.delete),
+                            child: IconButton(onPressed: (){}, icon: const Icon(Icons.delete, color: Colors.green,)),
                           )
                         ],
                       )),
