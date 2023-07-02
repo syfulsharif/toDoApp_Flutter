@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 InputDecoration appInputDecoration(label) {
   return InputDecoration(
-    contentPadding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+    contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
     border: const OutlineInputBorder(),
     labelText: label,
   );
@@ -20,8 +20,7 @@ ButtonStyle appButtonStyle() {
   );
 }
 
-
-SizedBox sizedBox50 (child) {
+SizedBox sizedBox50(child) {
   return SizedBox(
     height: 50.0,
     width: double.infinity,

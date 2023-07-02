@@ -14,6 +14,7 @@ class _ToDoAppViewState extends State<ToDoAppView> {
   removeItem(index) {
     toDoList.remove(toDoList[index]);
   }
+
   final fieldText = TextEditingController();
 
   void clearText() {
@@ -90,11 +91,15 @@ class _ToDoAppViewState extends State<ToDoAppView> {
                           ),
                           Expanded(
                             flex: 15,
-                            child: IconButton(onPressed: (){
-                              setState(() {
-                                removeItem(index);
-                              });
-                            }, icon: const Icon(Icons.delete, color: Colors.green,)),
+                            child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  removeItem(index);
+                                });
+                              },
+                              icon:
+                                  const Icon(Icons.delete, color: Colors.green),
+                            ),
                           )
                         ],
                       )),
