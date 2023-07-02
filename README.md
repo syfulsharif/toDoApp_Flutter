@@ -1,16 +1,8 @@
 # todoapp
 
-ToDo App Flutte
+ToDo App Flutter
 
-## Getting Started
+Final Output of the ToDo App
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![1](https://github.com/syfulsharif/toDoApp_Flutter/assets/2669892/16309b2c-848f-41c1-8005-9f1d97bbc69f)
+![2](https://github.com/syfulsharif/toDoApp_Flutter/assets/2669892/cd33baed-9136-4fee-b413-2ad09c661bf6)
